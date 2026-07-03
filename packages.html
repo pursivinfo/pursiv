@@ -1229,7 +1229,6 @@ h2.title {
      CUSTOM CURSOR — Neon Glow (theme-aware dot: white-on-light / black-on-dark)
      Motion model, ribbon rendering and glow are unchanged from the source cursor.
      ============================================================ */
-  (function neonGlowCursor(){
     const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
     if (!isFinePointer) return;
     document.documentElement.classList.add('has-custom-cursor');
