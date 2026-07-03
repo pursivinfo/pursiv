@@ -1,1 +1,1406 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<title>Pricing — Pursiv | Product Development Partner</title>
+<meta name="description" content="Pursiv plans — Starter, Growth, and Diamond. Product design, supplier research, negotiation support, and strategy on a flat monthly retainer." />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+ 
+<!-- Anti-flash theme init: sets data-theme before first paint, no FOUC -->
+<script>
+(function(){
+  try {
+    var t = localStorage.getItem('pursiv-theme');
+    if (t !== 'light' && t !== 'dark') {
+      t = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+    document.documentElement.setAttribute('data-theme', t);
+  } catch (e) { document.documentElement.setAttribute('data-theme', 'light'); }
+})();
+</script>
+ 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Manrope:wght@500;600;700;800&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+ 
+<style>
+/* ============================================================
+   PURSIV — DESIGN SYSTEM TOKENS
+   Source: Official Pursiv Brand Guidelines v1.0
+   ============================================================ */
+:root {
+  --font-display: "Manrope", -apple-system, BlinkMacSystemFont, "SF Pro Display", sans-serif;
+  --font-body: "Inter", -apple-system, BlinkMacSystemFont, "SF Pro Text", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+ 
+  /* Brand palette */
+  --purple: #6C4EFF;
+  --purple-2: #8B6CFF;
+  --purple-light: #EDE9FF;
+  --bg-neutral: #F5F6FA;
+  --gray: #6B7280;
+  --dark: #0F1117;
+  --success: #10B981;
+  --warning: #F5A623;
+  --error: #EF4A63;
+  --info: #3E8DFF;
+ 
+  --grad-brand: linear-gradient(135deg, #6C4EFF 0%, #8B6CFF 100%);
+  --grad-brand-rich: linear-gradient(135deg, #6C4EFF 0%, #8B6CFF 60%, #3E8DFF 130%);
+  --grad-soft: linear-gradient(135deg, #6C4EFF 0%, #EDE9FF 100%);
+  --grad-radial-deep: radial-gradient(circle, #8B6CFF 0%, #0F1117 100%);
+  --dark-indigo: linear-gradient(145deg, #1C1440 0%, #0F1117 100%);
+  --dark-obsidian: linear-gradient(145deg, #121319 0%, #0B0C11 100%);
+ 
+  /* Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-fast: 150ms;
+  --dur-std: 280ms;
+  --dur-page: 500ms;
+ 
+  /* Radius */
+  --r-sm: 8px;
+  --r-md: 16px;
+  --r-lg: 24px;
+  --r-xl: 32px;
+  --r-pill: 999px;
+ 
+  /* Light theme surfaces (default) */
+  --surface: #ffffff;
+  --surface-2: var(--bg-neutral);
+  --ink-900: var(--dark);
+  --ink-700: #33384A;
+  --ink-500: var(--gray);
+  --ink-400: #9297A8;
+  --ink-300: #C4C8D4;
+  --line: rgba(15, 17, 23, 0.08);
+  --glass-bg: rgba(255, 255, 255, 0.62);
+  --glass-bg-strong: rgba(255, 255, 255, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.75);
+  --glass-blur: 24px;
+ 
+  --shadow-sm: 0 1px 2px rgba(15,17,23,.06), 0 1px 3px rgba(15,17,23,.05);
+  --shadow-md: 0 8px 24px -8px rgba(108,78,255,.18), 0 2px 8px rgba(15,17,23,.06);
+  --shadow-lg: 0 28px 64px -24px rgba(108,78,255,.24), 0 6px 20px rgba(15,17,23,.08);
+  --shadow-xl: 0 40px 90px -30px rgba(108,78,255,.30), 0 10px 28px rgba(15,17,23,.12);
+  --shadow-glow: 0 18px 50px -16px rgba(108,78,255,.45);
+}
+ 
+[data-theme="dark"] {
+  --surface: #15171F;
+  --surface-2: #0F1117;
+  --ink-900: #F5F6FA;
+  --ink-700: #C7CAD6;
+  --ink-500: #9297A8;
+  --ink-400: #6B7280;
+  --ink-300: #454A59;
+  --line: rgba(255, 255, 255, 0.08);
+  --glass-bg: rgba(21, 23, 31, 0.6);
+  --glass-bg-strong: rgba(21, 23, 31, 0.82);
+  --glass-border: rgba(255, 255, 255, 0.09);
+ 
+  --shadow-sm: 0 1px 2px rgba(0,0,0,.3), 0 1px 3px rgba(0,0,0,.24);
+  --shadow-md: 0 8px 24px -8px rgba(108,78,255,.3), 0 2px 8px rgba(0,0,0,.3);
+  --shadow-lg: 0 28px 64px -24px rgba(108,78,255,.38), 0 6px 20px rgba(0,0,0,.35);
+  --shadow-xl: 0 40px 90px -30px rgba(108,78,255,.44), 0 10px 28px rgba(0,0,0,.4);
+}
+ 
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: var(--font-body);
+  color: var(--ink-900);
+  background: var(--surface-2);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+  overflow-x: hidden;
+  position: relative;
+  transition: background var(--dur-page) var(--ease), color var(--dur-page) var(--ease);
+}
+ 
+/* Custom cursor: disable native cursor everywhere on hover-capable devices */
+@media (hover: hover) and (pointer: fine) {
+  html.has-custom-cursor, html.has-custom-cursor * { cursor: none !important; }
+}
+ 
+/* Ambient orbs */
+body::before, body::after {
+  content: ""; position: fixed; z-index: -2; border-radius: 50%;
+  filter: blur(90px); opacity: 0.45; pointer-events: none;
+  transition: opacity var(--dur-page) var(--ease);
+}
+body::before {
+  width: 60vw; height: 60vw; top: -22vw; left: -14vw;
+  background: radial-gradient(circle, rgba(108,78,255,0.45), transparent 65%);
+}
+body::after {
+  width: 55vw; height: 55vw; bottom: -20vw; right: -12vw;
+  background: radial-gradient(circle, rgba(62,141,255,0.35), transparent 65%);
+}
+[data-theme="dark"] body::before, [data-theme="dark"] body::after { opacity: 0.28; }
+.bg-grid {
+  position: fixed; inset: 0; z-index: -1;
+  background-image:
+    linear-gradient(rgba(15,17,23,0.025) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15,17,23,0.025) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 0%, #000 30%, transparent 90%);
+  pointer-events: none;
+}
+[data-theme="dark"] .bg-grid {
+  background-image:
+    linear-gradient(rgba(245,246,250,0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(245,246,250,0.04) 1px, transparent 1px);
+}
+ 
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; max-width: 100%; }
+ul { list-style: none; }
+button { font: inherit; background: none; border: none; }
+::selection { background: rgba(108,78,255,0.2); }
+ 
+/* Layout */
+.container { width: 100%; max-width: 1160px; margin-inline: auto; padding-inline: 24px; }
+section { padding: clamp(64px, 9vw, 120px) 0; position: relative; }
+ 
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-family: var(--font-mono); font-weight: 500; font-size: 12px;
+  letter-spacing: 0.1em; text-transform: uppercase; color: var(--purple);
+  padding: 7px 14px; border-radius: var(--r-pill);
+  background: rgba(108,78,255,0.08); border: 1px solid rgba(108,78,255,0.18);
+  margin-bottom: 20px;
+}
+.eyebrow .dot { width: 6px; height: 6px; border-radius: 50%; background: var(--purple); box-shadow: 0 0 0 4px rgba(108,78,255,0.18); }
+ 
+.section-head { max-width: 640px; margin-bottom: 56px; }
+.section-head.center { margin-inline: auto; text-align: center; }
+ 
+h1, h2, h3 { font-family: var(--font-display); letter-spacing: -0.02em; line-height: 1.08; }
+h2.title {
+  font-size: clamp(30px, 4.4vw, 44px); font-weight: 800;
+  color: var(--ink-900);
+  margin-bottom: 16px;
+}
+.lead { font-size: clamp(16px, 1.6vw, 18px); color: var(--ink-500); }
+.grad-word { background: var(--grad-brand-rich); -webkit-background-clip: text; background-clip: text; color: transparent; }
+ 
+/* Glass primitive */
+.glass {
+  background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(160%);
+  border: 1px solid var(--glass-border); border-radius: var(--r-lg);
+  box-shadow: var(--shadow-md); position: relative;
+}
+.glass::after {
+  content: ""; position: absolute; inset: 0 0 auto 0; height: 50%;
+  border-radius: inherit;
+  background: linear-gradient(180deg, rgba(255,255,255,0.35), transparent);
+  pointer-events: none; opacity: 0.5;
+}
+[data-theme="dark"] .glass::after { background: linear-gradient(180deg, rgba(255,255,255,0.06), transparent); }
+ 
+/* Buttons */
+.btn {
+  font-family: var(--font-display); font-weight: 700; font-size: 14.5px;
+  display: inline-flex; align-items: center; justify-content: center; gap: 9px;
+  padding: 14px 26px; border-radius: var(--r-pill); border: 1px solid transparent; cursor: pointer;
+  transition: transform var(--dur-std) var(--ease), box-shadow var(--dur-std) var(--ease), background var(--dur-fast) var(--ease-soft);
+  white-space: nowrap;
+}
+.btn svg { width: 18px; height: 18px; }
+.btn:active { transform: scale(0.97); }
+.btn-primary { color: #fff; background: var(--grad-brand-rich); background-size: 160% 160%; box-shadow: var(--shadow-glow); }
+.btn-primary:hover { transform: translateY(-2px); background-position: 100% 0; box-shadow: 0 24px 60px -16px rgba(108,78,255,0.6); }
+.btn-ghost {
+  color: var(--ink-900); background: var(--glass-bg-strong);
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+  border-color: var(--line); box-shadow: var(--shadow-sm);
+}
+.btn-ghost:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+ 
+/* ============================================================
+   NAV — premium SaaS mega-menu system
+   ============================================================ */
+.nav {
+  position: fixed; top: 16px; left: 50%; transform: translateX(-50%); z-index: 200;
+  width: calc(100% - 32px); max-width: 1160px;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 9px 12px 9px 18px; border-radius: var(--r-pill);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(22px) saturate(180%); -webkit-backdrop-filter: blur(22px) saturate(180%);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow-md);
+  transition: box-shadow var(--dur-page) var(--ease), background var(--dur-page) var(--ease);
+}
+.nav.scrolled { box-shadow: var(--shadow-lg); }
+.brand { display: flex; align-items: center; gap: 9px; font-family: var(--font-display); font-weight: 800; font-size: 18px; letter-spacing: -0.01em; color: var(--ink-900); }
+.brand-mark-img { width: 30px; height: 30px; object-fit: contain; }
+.nav-links { display: flex; align-items: center; gap: 2px; }
+.nav-item { position: relative; }
+.nav-link {
+  display: inline-flex; align-items: center; gap: 5px; cursor: pointer;
+  font-family: var(--font-body); font-size: 13.5px; font-weight: 600; color: var(--ink-500);
+  padding: 9px 13px; border-radius: var(--r-pill); transition: color var(--dur-fast) ease, background var(--dur-fast) ease;
+}
+.nav-link .chev { width: 14px; height: 14px; transition: transform var(--dur-std) var(--ease); }
+.nav-item:hover .nav-link, .nav-item.open .nav-link, .nav-link:focus-visible { color: var(--ink-900); background: rgba(108,78,255,0.08); }
+.nav-item:hover .nav-link .chev, .nav-item.open .nav-link .chev { transform: rotate(180deg); }
+ 
+/* Invisible hover bridge — kills the gap so moving the cursor from
+   trigger into the panel never closes it (standard mega-menu technique) */
+.menu-wrap {
+  position: absolute; top: 100%; left: 50%; transform: translateX(-50%);
+  padding-top: 14px; z-index: 120;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity .26s var(--ease), visibility .26s;
+}
+.nav-item:hover .menu-wrap, .nav-item.open .menu-wrap, .nav-item:focus-within .menu-wrap {
+  opacity: 1; visibility: visible; pointer-events: auto;
+}
+.mega-panel {
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(28px) saturate(180%); -webkit-backdrop-filter: blur(28px) saturate(180%);
+  border: 1px solid var(--glass-border); border-radius: 22px;
+  box-shadow: var(--shadow-xl);
+  padding: 14px;
+  transform: translateY(8px) scale(0.98);
+  transition: transform .26s var(--ease);
+}
+.nav-item:hover .mega-panel, .nav-item.open .mega-panel, .nav-item:focus-within .mega-panel { transform: translateY(0) scale(1); }
+ 
+/* Services / Learn — card-grid mega panels */
+.mega-panel.wide { width: min(88vw, 480px); }
+.mega-panel.grid2 { width: min(88vw, 580px); }
+.mega-grid { display: grid; gap: 2px; }
+.mega-panel.grid2 .mega-grid { grid-template-columns: 1fr 1fr; gap: 4px; }
+.mega-card {
+  display: flex; align-items: flex-start; gap: 13px; padding: 12px 13px; border-radius: 14px;
+  transition: background .2s ease;
+}
+.mega-card:hover, .mega-card:focus-visible { background: rgba(108,78,255,0.08); }
+.mega-icon {
+  flex-shrink: 0; width: 38px; height: 38px; border-radius: 11px;
+  background: rgba(108,78,255,0.09); border: 1px solid rgba(108,78,255,0.18);
+  display: grid; place-items: center; transition: background .2s ease, transform .2s ease;
+}
+.mega-card:hover .mega-icon { background: var(--grad-brand); transform: translateY(-1px); }
+.mega-icon svg { width: 17px; height: 17px; color: var(--purple); transition: color .2s ease; }
+.mega-card:hover .mega-icon svg { color: #fff; }
+.mega-text { min-width: 0; }
+.mega-title { display: block; font-family: var(--font-display); font-size: 14px; font-weight: 700; color: var(--ink-900); margin-bottom: 2px; }
+.mega-desc { display: block; font-size: 12.5px; line-height: 1.45; color: var(--ink-500); }
+.mega-soon { display: inline-block; margin-left: 7px; font-family: var(--font-mono); font-size: 9.5px; font-weight: 500; letter-spacing: .04em; text-transform: uppercase; color: var(--purple); background: rgba(108,78,255,0.1); padding: 2px 6px; border-radius: 999px; vertical-align: middle; }
+ 
+/* Pricing panel */
+.mega-panel.pricing-panel { width: min(88vw, 320px); }
+.plan-card { display: flex; align-items: flex-start; gap: 13px; padding: 12px 13px; border-radius: 14px; transition: background .2s ease; position: relative; }
+.plan-card:hover { background: rgba(108,78,255,0.08); }
+.plan-badge {
+  position: absolute; top: 8px; right: 10px; font-family: var(--font-mono); font-size: 9px; font-weight: 500;
+  letter-spacing: .04em; text-transform: uppercase; color: var(--purple); background: rgba(108,78,255,0.12);
+  padding: 3px 7px; border-radius: 999px;
+}
+.mega-divider { height: 1px; background: var(--line); margin: 8px 6px; }
+.compare-row {
+  display: flex; align-items: center; justify-content: space-between; gap: 10px;
+  padding: 11px 13px; border-radius: 14px; font-family: var(--font-display); font-size: 13.5px; font-weight: 700; color: var(--purple);
+  transition: background .2s ease;
+}
+.compare-row:hover { background: rgba(108,78,255,0.08); }
+.compare-row svg { width: 15px; height: 15px; transition: transform .2s ease; }
+.compare-row:hover svg { transform: translateX(3px); }
+ 
+/* Company panel */
+.mega-panel.company-panel { width: min(88vw, 300px); }
+.mega-label { padding: 8px 13px 4px; font-family: var(--font-mono); font-size: 10.5px; font-weight: 500; letter-spacing: .08em; text-transform: uppercase; color: var(--ink-400); }
+.mega-link-row { display: flex; align-items: center; gap: 11px; padding: 10px 13px; border-radius: 12px; font-size: 13.5px; font-weight: 500; color: var(--ink-700); transition: background .2s ease, color .2s ease; }
+.mega-link-row:hover { background: rgba(108,78,255,0.08); color: var(--purple); }
+.mega-link-row svg { width: 15px; height: 15px; color: var(--ink-400); flex-shrink: 0; }
+.mega-link-row:hover svg { color: var(--purple); }
+ 
+.nav-cta { display: flex; align-items: center; gap: 6px; }
+.btn-sm { padding: 9px 17px; font-size: 13.5px; }
+.theme-toggle {
+  width: 38px; height: 38px; border-radius: 50%; display: grid; place-items: center;
+  color: var(--ink-700); background: transparent; border: 1px solid var(--line);
+  cursor: pointer; transition: background var(--dur-fast) ease, transform var(--dur-fast) ease, border-color var(--dur-fast) ease;
+}
+.theme-toggle:hover { background: rgba(108,78,255,0.08); transform: translateY(-1px); border-color: rgba(108,78,255,0.3); }
+.theme-toggle svg { width: 17px; height: 17px; }
+.theme-toggle .icon-sun { display: none; }
+[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
+.menu-toggle { display: none; cursor: pointer; padding: 8px; color: var(--ink-900); }
+.mobile-menu { display: none; }
+ 
+/* Scroll reveal */
+.reveal { opacity: 0; transform: translateY(26px); transition: opacity .8s var(--ease), transform .8s var(--ease); }
+.reveal.in { opacity: 1; transform: none; }
+.reveal[data-delay="1"] { transition-delay: .08s; }
+.reveal[data-delay="2"] { transition-delay: .16s; }
+.reveal[data-delay="3"] { transition-delay: .24s; }
+ 
+@media (prefers-reduced-motion: reduce) {
+  .reveal { opacity: 1; transform: none; transition: none; }
+  * { animation: none !important; }
+  html { scroll-behavior: auto; }
+}
+ 
+/* Footer */
+.footer { padding: 48px 0 56px; border-top: 1px solid var(--line); margin-top: 40px; }
+.footer .container { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 18px; }
+.footer .brand { font-size: 17px; }
+.footer-meta { font-size: 13.5px; color: var(--ink-400); }
+.footer-links { display: flex; gap: 20px; font-size: 14px; color: var(--ink-500); }
+.footer-links a:hover { color: var(--purple); }
+ 
+/* Responsive nav — accordion mobile menu */
+@media (max-width: 860px) {
+  .nav-links { display: none; }
+  .menu-toggle { display: inline-flex; }
+  .nav { padding: 8px 10px 8px 16px; }
+  .mobile-menu {
+    position: fixed; inset: 78px 16px auto 16px; z-index: 199; border-radius: var(--r-lg);
+    background: var(--glass-bg-strong);
+    backdrop-filter: blur(22px) saturate(180%); -webkit-backdrop-filter: blur(22px) saturate(180%);
+    border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg);
+    padding: 10px; display: none; flex-direction: column; gap: 2px;
+    transform-origin: top; animation: drop .4s var(--ease); max-height: calc(100vh - 100px); overflow-y: auto;
+  }
+  .mobile-menu.open { display: flex; }
+ 
+  .mm-acc { border-bottom: 1px solid var(--line); }
+  .mm-acc:last-of-type { border-bottom: none; }
+  .mm-acc-head {
+    width: 100%; display: flex; align-items: center; justify-content: space-between;
+    padding: 15px 10px; cursor: pointer;
+    font-family: var(--font-display); font-size: 14.5px; font-weight: 700; color: var(--ink-900);
+  }
+  .mm-acc-head .chev { width: 16px; height: 16px; color: var(--ink-400); transition: transform .28s var(--ease); }
+  .mm-acc.open .mm-acc-head .chev { transform: rotate(180deg); }
+  .mm-acc-body { max-height: 0; overflow: hidden; transition: max-height .32s var(--ease); }
+  .mm-item { display: flex; align-items: flex-start; gap: 12px; padding: 10px; border-radius: 12px; margin-bottom: 2px; }
+  .mm-item:active, .mm-item:hover { background: rgba(108,78,255,0.08); }
+  .mm-item .mega-icon { width: 34px; height: 34px; }
+  .mm-item .mega-icon svg { width: 15px; height: 15px; }
+  .mm-item-text { min-width: 0; }
+  .mm-item-title { display: block; font-size: 13.5px; font-weight: 700; color: var(--ink-900); }
+  .mm-item-desc { display: block; font-size: 12px; color: var(--ink-500); margin-top: 1px; line-height: 1.4; }
+  .mm-simple { display: block; padding: 12px 10px; border-radius: 12px; font-size: 13.5px; font-weight: 600; color: var(--ink-700); }
+  .mm-simple:hover { background: rgba(108,78,255,0.08); color: var(--purple); }
+  .mm-plan-badge { font-family: var(--font-mono); font-size: 9px; text-transform: uppercase; color: var(--purple); background: rgba(108,78,255,0.12); padding: 2px 6px; border-radius: 999px; margin-left: 6px; }
+ 
+  .mobile-menu .mm-actions { display: flex; gap: 10px; padding: 14px 10px 6px; }
+  .mobile-menu .mm-actions .btn { flex: 1; }
+  @keyframes drop { from { opacity: 0; transform: scaleY(0.94) translateY(-8px); } }
+}
+ 
+/* ============================================================
+   PRICING PAGE — HERO
+   ============================================================ */
+.pkg-hero { padding-top: clamp(150px, 18vw, 200px); text-align: center; }
+.pkg-hero .container { display: flex; flex-direction: column; align-items: center; }
+.pkg-hero h1 {
+  font-size: clamp(38px, 6.6vw, 68px); font-weight: 800; max-width: 17ch; margin-bottom: 20px;
+  color: var(--ink-900);
+}
+.pkg-hero h1 em { font-style: normal; background: var(--grad-brand-rich); -webkit-background-clip: text; background-clip: text; color: transparent; }
+.pkg-hero p.lead { max-width: 52ch; margin-bottom: 36px; }
+.pkg-hero-actions { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+ 
+/* Cards */
+.cards-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; align-items: start; }
+.pcard {
+  border-radius: var(--r-xl); padding: 38px 32px; position: relative;
+  transition: transform var(--dur-page) var(--ease), box-shadow var(--dur-page) var(--ease);
+  display: flex; flex-direction: column;
+}
+.pcard-starter {
+  background: var(--glass-bg); border: 1px solid var(--glass-border);
+  backdrop-filter: blur(var(--glass-blur)) saturate(150%); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(150%);
+  box-shadow: var(--shadow-md);
+}
+.pcard-starter:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); }
+.pcard-growth {
+  background: var(--dark-indigo); border: 1px solid rgba(108,78,255,0.4);
+  box-shadow: var(--shadow-xl), 0 0 0 1px rgba(108,78,255,0.18); transform: translateY(-10px); overflow: hidden;
+}
+.pcard-growth::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,108,255,0.35), transparent 60%);
+}
+.pcard-growth:hover { transform: translateY(-16px); box-shadow: 0 50px 110px -30px rgba(108,78,255,0.55), 0 10px 28px rgba(0,0,0,0.3); }
+.pcard-diamond { background: var(--dark-obsidian); border: 1px solid rgba(139,108,255,0.24); box-shadow: var(--shadow-xl); overflow: hidden; }
+.pcard-diamond::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 50% 0%, rgba(139,108,255,0.16), transparent 60%);
+}
+.pcard-diamond:hover { transform: translateY(-8px); box-shadow: 0 44px 100px -30px rgba(139,108,255,0.24), 0 10px 28px rgba(0,0,0,0.36); }
+ 
+.pcard > * { position: relative; }
+ 
+.pkg-badge {
+  display: inline-flex; align-items: center; gap: 6px; padding: 6px 13px; border-radius: var(--r-pill);
+  font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase; margin-bottom: 22px; width: fit-content;
+}
+.badge-starter { background: rgba(108,78,255,0.09); color: var(--purple); border: 1px solid rgba(108,78,255,0.22); }
+.badge-growth { background: rgba(139,108,255,0.2); color: #C9C1FF; border: 1px solid rgba(139,108,255,0.4); }
+.badge-diamond { background: rgba(139,108,255,0.12); color: #C9C1FF; border: 1px solid rgba(139,108,255,0.24); }
+ 
+.pkg-plan { font-family: var(--font-display); font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 10px; }
+.pcard-starter .pkg-plan { color: var(--ink-400); }
+.pcard-growth .pkg-plan, .pcard-diamond .pkg-plan { color: rgba(255,255,255,0.5); }
+ 
+.pkg-headline { font-family: var(--font-display); font-size: 21px; font-weight: 700; line-height: 1.3; letter-spacing: -0.3px; margin-bottom: 22px; }
+.pcard-starter .pkg-headline { color: var(--ink-900); }
+.pcard-growth .pkg-headline, .pcard-diamond .pkg-headline { color: #fff; }
+ 
+.pkg-price { display: flex; align-items: flex-end; gap: 6px; margin-bottom: 6px; }
+.price-amount { font-family: var(--font-display); font-size: 46px; font-weight: 800; letter-spacing: -2px; line-height: 1; }
+.pcard-starter .price-amount { color: var(--ink-900); }
+.pcard-growth .price-amount, .pcard-diamond .price-amount { color: #fff; }
+.price-period { font-size: 14px; font-weight: 500; margin-bottom: 6px; }
+.pcard-starter .price-period { color: var(--ink-400); }
+.pcard-growth .price-period, .pcard-diamond .price-period { color: rgba(255,255,255,0.5); }
+.price-note { font-size: 12.5px; font-weight: 500; margin-bottom: 28px; }
+.pcard-starter .price-note { color: var(--ink-400); }
+.pcard-growth .price-note { color: rgba(201,193,255,0.85); }
+.pcard-diamond .price-note { color: rgba(201,193,255,0.65); }
+ 
+.pkg-divider { height: 1px; margin-bottom: 24px; }
+.pcard-starter .pkg-divider { background: var(--line); }
+.pcard-growth .pkg-divider { background: rgba(255,255,255,0.1); }
+.pcard-diamond .pkg-divider { background: rgba(255,255,255,0.08); }
+ 
+.feat-list { display: flex; flex-direction: column; gap: 13px; margin-bottom: 32px; flex: 1; }
+.feat { display: flex; align-items: flex-start; gap: 12px; }
+.feat-check { width: 19px; height: 19px; border-radius: 50%; flex-shrink: 0; display: grid; place-items: center; margin-top: 1px; }
+.feat-check svg { width: 11px; height: 11px; }
+.pcard-starter .feat-check { background: rgba(108,78,255,0.1); } .pcard-starter .feat-check svg { color: var(--purple); }
+.pcard-growth .feat-check { background: rgba(139,108,255,0.28); } .pcard-growth .feat-check svg { color: #C9C1FF; }
+.pcard-diamond .feat-check { background: rgba(139,108,255,0.16); } .pcard-diamond .feat-check svg { color: #C9C1FF; }
+.feat-text { font-size: 13.5px; line-height: 1.5; }
+.pcard-starter .feat-text { color: var(--ink-700); }
+.pcard-growth .feat-text { color: rgba(255,255,255,0.8); }
+.pcard-diamond .feat-text { color: rgba(255,255,255,0.72); }
+ 
+.pkg-cta {
+  width: 100%; padding: 15px 20px; border-radius: var(--r-sm); font-family: var(--font-display);
+  font-size: 14.5px; font-weight: 700; text-align: center; display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+  transition: transform var(--dur-std) var(--ease), box-shadow var(--dur-std) var(--ease), background var(--dur-fast);
+}
+.pkg-cta:hover { transform: translateY(-2px); }
+.cta-starter { background: var(--glass-bg-strong); color: var(--ink-900); border: 1px solid var(--line); }
+.cta-starter:hover { box-shadow: var(--shadow-md); }
+.cta-growth { background: var(--grad-brand-rich); color: #fff; box-shadow: 0 6px 22px rgba(108,78,255,0.5); }
+.cta-growth:hover { box-shadow: 0 12px 36px rgba(108,78,255,0.7); }
+.cta-diamond { background: transparent; color: #C9C1FF; border: 1px solid rgba(139,108,255,0.4); }
+.cta-diamond:hover { background: rgba(139,108,255,0.1); border-color: #8B6CFF; }
+ 
+/* Partner note */
+.partner-note { padding-top: 0; }
+.note-card {
+  max-width: 860px; margin-inline: auto; padding: 32px 38px;
+  display: flex; align-items: flex-start; gap: 20px;
+}
+.note-icon {
+  flex-shrink: 0; width: 44px; height: 44px; border-radius: var(--r-md);
+  background: rgba(108,78,255,0.09); border: 1px solid rgba(108,78,255,0.2);
+  display: grid; place-items: center;
+}
+.note-icon svg { width: 20px; height: 20px; color: var(--purple); }
+.note-card p { font-size: 14.5px; line-height: 1.7; color: var(--ink-500); }
+.note-card strong { color: var(--ink-900); font-weight: 600; }
+ 
+/* Why grid */
+.why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+.why-card {
+  padding: 32px; border-radius: var(--r-lg); background: var(--glass-bg);
+  backdrop-filter: blur(var(--glass-blur)) saturate(155%); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(155%);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow-md);
+  transition: transform var(--dur-page) var(--ease), box-shadow var(--dur-page) var(--ease);
+}
+.why-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.why-icon {
+  width: 46px; height: 46px; border-radius: var(--r-md); display: grid; place-items: center; margin-bottom: 20px;
+  background: rgba(108,78,255,0.1); border: 1px solid rgba(108,78,255,0.2);
+}
+.why-icon svg { width: 21px; height: 21px; color: var(--purple); }
+.why-card h3 { font-size: 16.5px; font-weight: 700; margin-bottom: 10px; letter-spacing: -0.3px; color: var(--ink-900); }
+.why-card p { font-size: 14px; color: var(--ink-500); line-height: 1.65; }
+ 
+/* How it works — dark band */
+.how-band {
+  background: var(--dark-indigo); border-radius: var(--r-xl); padding: clamp(48px, 6vw, 72px) clamp(28px, 4vw, 56px);
+  position: relative; overflow: hidden; box-shadow: var(--shadow-lg);
+}
+.how-band::before {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: radial-gradient(ellipse at 30% 0%, rgba(108,78,255,0.3), transparent 60%), radial-gradient(ellipse at 75% 20%, rgba(139,108,255,0.2), transparent 60%);
+}
+.how-band > * { position: relative; }
+.how-band .eyebrow { background: rgba(139,108,255,0.18); border-color: rgba(201,193,255,0.28); color: #C9C1FF; }
+.how-band .eyebrow .dot { background: #C9C1FF; box-shadow: 0 0 0 4px rgba(139,108,255,0.3); }
+.how-band h2.title { color: #fff; }
+.how-band .lead { color: rgba(255,255,255,0.55); }
+.steps-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px; margin-top: 52px; }
+.hstep { padding: 30px 24px; border-radius: var(--r-lg); background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08); transition: transform var(--dur-page) var(--ease), background var(--dur-page) var(--ease); }
+.hstep:hover { transform: translateY(-5px); background: rgba(255,255,255,0.07); }
+.hstep-num { font-family: var(--font-mono); font-size: 12px; font-weight: 500; letter-spacing: 0.1em; color: rgba(255,255,255,0.3); margin-bottom: 18px; }
+.hstep-icon { width: 46px; height: 46px; border-radius: var(--r-md); background: rgba(108,78,255,0.2); border: 1px solid rgba(108,78,255,0.32); display: grid; place-items: center; margin-bottom: 18px; }
+.hstep-icon svg { width: 21px; height: 21px; color: #C9C1FF; }
+.hstep h3 { font-size: 17px; font-weight: 700; color: #fff; margin-bottom: 10px; letter-spacing: -0.3px; }
+.hstep p { font-size: 13.5px; color: rgba(255,255,255,0.55); line-height: 1.6; }
+ 
+/* Comparison table */
+.ct-shell { max-width: 940px; margin-inline: auto; }
+.ct-wrap {
+  border-radius: var(--r-lg);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(var(--glass-blur)) saturate(155%); -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(155%);
+  border: 1px solid var(--glass-border); box-shadow: var(--shadow-lg);
+  overflow: hidden;
+}
+.table-scroll { overflow-x: auto; overflow-y: hidden; }
+.ct-table { width: 100%; border-collapse: collapse; min-width: 640px; }
+.ct-table thead tr { border-bottom: 1px solid var(--line); }
+.ct-table th { padding: 20px 20px; font-family: var(--font-display); font-size: 12px; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-400); text-align: center; }
+.ct-table th.th-feature { text-align: left; width: 30%; position: sticky; left: 0; background: var(--surface); z-index: 2; }
+.ct-table th.th-growth { background: rgba(108,78,255,0.07); color: var(--purple); border-left: 1px solid rgba(108,78,255,0.14); border-right: 1px solid rgba(108,78,255,0.14); }
+.ct-th-name { display: block; font-size: 13px; font-weight: 800; letter-spacing: -0.2px; margin-bottom: 2px; }
+.ct-th-price { display: block; font-family: var(--font-display); font-size: 19px; font-weight: 800; letter-spacing: -0.5px; color: var(--ink-900); }
+.ct-th-price.growth-price { color: var(--purple); }
+.ct-th-sub { display: block; font-size: 11px; font-weight: 500; color: var(--ink-400); letter-spacing: 0.02em; text-transform: none; margin-top: 2px; }
+.ct-th-sub.growth-sub { color: rgba(108,78,255,0.8); }
+.ct-table tbody tr { border-bottom: 1px solid var(--line); transition: background .15s; }
+.ct-table tbody tr:last-child { border-bottom: none; }
+.ct-table tbody tr:hover td { background: rgba(15,17,23,0.02); }
+[data-theme="dark"] .ct-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+.ct-table tbody tr:hover td.td-growth { background: rgba(108,78,255,0.08); }
+.ct-table td { padding: 15px 20px; font-size: 13.5px; color: var(--ink-500); text-align: center; vertical-align: middle; }
+.ct-table td.td-feature { text-align: left; color: var(--ink-900); font-weight: 500; position: sticky; left: 0; background: var(--surface); z-index: 1; }
+.ct-table td.td-growth { background: rgba(108,78,255,0.045); border-left: 1px solid rgba(108,78,255,0.1); border-right: 1px solid rgba(108,78,255,0.1); color: var(--purple); font-weight: 600; }
+.ct-table td.td-diamond-val { color: var(--ink-900); font-weight: 600; }
+.ct-dash { color: var(--ink-300); font-size: 18px; font-weight: 300; }
+.ct-cat td { background: rgba(15,17,23,0.03) !important; padding: 12px 20px 8px; font-family: var(--font-display); font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-400); text-align: left; border-bottom: none; position: static; }
+[data-theme="dark"] .ct-cat td { background: rgba(255,255,255,0.03) !important; }
+ 
+/* FAQ */
+.faq-shell { max-width: 780px; margin-inline: auto; }
+.faq-item {
+  border-radius: var(--r-lg); background: var(--glass-bg); border: 1px solid var(--glass-border);
+  margin-bottom: 12px; overflow: hidden; box-shadow: var(--shadow-sm);
+  transition: box-shadow var(--dur-std) var(--ease);
+}
+.faq-item.open { box-shadow: var(--shadow-md); }
+.faq-q {
+  width: 100%; display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  padding: 22px 26px; text-align: left; cursor: pointer; font-family: var(--font-display);
+  font-size: 15.5px; font-weight: 700; color: var(--ink-900);
+}
+.faq-q .icon-plus { flex-shrink: 0; width: 26px; height: 26px; border-radius: 50%; background: rgba(108,78,255,0.09); display: grid; place-items: center; transition: transform var(--dur-std) var(--ease), background var(--dur-std) ease; }
+.faq-q .icon-plus svg { width: 13px; height: 13px; color: var(--purple); transition: transform var(--dur-std) var(--ease); }
+.faq-item.open .icon-plus { background: var(--grad-brand); }
+.faq-item.open .icon-plus svg { color: #fff; transform: rotate(45deg); }
+.faq-a { max-height: 0; overflow: hidden; transition: max-height var(--dur-page) var(--ease); }
+.faq-a-inner { padding: 0 26px 24px; font-size: 14.5px; color: var(--ink-500); line-height: 1.7; max-width: 62ch; }
+ 
+/* Trust band */
+.trust-band {
+  background: var(--dark-indigo); border-radius: var(--r-xl); padding: clamp(52px, 6vw, 80px) clamp(28px, 5vw, 64px);
+  text-align: center; position: relative; overflow: hidden; box-shadow: var(--shadow-lg);
+}
+.trust-band::before { content: ""; position: absolute; inset: 0; pointer-events: none; background: radial-gradient(ellipse at 50% 0%, rgba(108,78,255,0.35), transparent 60%); }
+.trust-band > * { position: relative; }
+.trust-band .eyebrow { background: rgba(139,108,255,0.18); border-color: rgba(201,193,255,0.28); color: #C9C1FF; }
+.trust-band .eyebrow .dot { background: #C9C1FF; box-shadow: 0 0 0 4px rgba(139,108,255,0.3); }
+.trust-band h2 { font-family: var(--font-display); font-size: clamp(28px, 4vw, 44px); font-weight: 800; color: #fff; margin-bottom: 16px; }
+.trust-band .lead { color: rgba(255,255,255,0.6); max-width: 52ch; margin: 0 auto 36px; }
+.trust-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.btn-ghost-dark { color: rgba(255,255,255,0.85); background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.12); }
+.btn-ghost-dark:hover { transform: translateY(-2px); background: rgba(255,255,255,0.13); box-shadow: none; }
+.trust-metrics { display: flex; justify-content: center; gap: 56px; margin-top: 56px; flex-wrap: wrap; }
+.metric-num { font-family: var(--font-display); font-size: 36px; font-weight: 800; color: #fff; letter-spacing: -1.5px; line-height: 1; }
+.metric-label { font-size: 12.5px; color: rgba(255,255,255,0.45); margin-top: 8px; font-weight: 500; }
+ 
+@media (max-width: 960px) {
+  .cards-grid { grid-template-columns: 1fr; max-width: 440px; margin-inline: auto; }
+  .pcard-growth { transform: none; } .pcard-growth:hover { transform: translateY(-8px); }
+  .steps-grid { grid-template-columns: repeat(2, 1fr); }
+  .why-grid { grid-template-columns: 1fr; }
+  .note-card { flex-direction: column; }
+}
+@media (max-width: 640px) {
+  .steps-grid { grid-template-columns: 1fr; }
+  .trust-metrics { gap: 32px; }
+  .pkg-hero-actions { flex-direction: column; width: 100%; }
+  .pkg-hero-actions .btn { width: 100%; }
+  .ct-table th, .ct-table td { padding: 12px 14px; font-size: 12.5px; }
+  .footer .container { flex-direction: column; align-items: flex-start; }
+}
+ 
+/* Cursor canvas */
+#cursor-fx { position: fixed; inset: 0; z-index: 9998; pointer-events: none; display: block; }
+</style>
+</head>
+<body>
+<div class="bg-grid"></div>
+<canvas id="cursor-fx"></canvas>
+ 
+<nav class="nav" id="nav">
+  <a href="index.html#top" class="brand">
+    <img src="assets/pursiv-mark.png" alt="Pursiv" class="brand-mark-img">
+    PURSIV
+  </a>
+ 
+  <div class="nav-links">
+ 
+    <!-- SERVICES — mega panel -->
+    <div class="nav-item" data-nav-item="services">
+      <button class="nav-link" aria-haspopup="true" aria-expanded="false">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="menu-wrap">
+        <div class="mega-panel wide" role="menu">
+          <div class="mega-grid">
+            <a href="index.html#services-design" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span>
+              <span class="mega-text"><span class="mega-title">Product Design</span><span class="mega-desc">Professional product design from concept to production-ready visuals.</span></span>
+            </a>
+            <a href="index.html#services-3d" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73Z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/></svg></span>
+              <span class="mega-text"><span class="mega-title">3D Product Rendering</span><span class="mega-desc">High-quality realistic renders for presentations and manufacturing.</span></span>
+            </a>
+            <a href="index.html#services-development" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span>
+              <span class="mega-text"><span class="mega-title">Product Development</span><span class="mega-desc">Transform ideas into manufacturable products.</span></span>
+            </a>
+            <a href="index.html#services-research" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span>
+              <span class="mega-text"><span class="mega-title">Supplier Research</span><span class="mega-desc">Find reliable suppliers matched to your product requirements.</span></span>
+            </a>
+            <a href="index.html#services-market" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span>
+              <span class="mega-text"><span class="mega-title">Market Research</span><span class="mega-desc">Understand competitors, pricing, and market opportunities.</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- PRICING — plan panel -->
+    <div class="nav-item" data-nav-item="pricing">
+      <button class="nav-link" aria-haspopup="true" aria-expanded="false">Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="menu-wrap">
+        <div class="mega-panel pricing-panel" role="menu">
+          <a href="packages.html#pricing" class="plan-card" role="menuitem">
+            <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span>
+            <span class="mega-text"><span class="mega-title">Starter</span><span class="mega-desc">Perfect for validating new product ideas.</span></span>
+          </a>
+          <a href="packages.html#pricing" class="plan-card" role="menuitem">
+            <span class="plan-badge">Most Popular</span>
+            <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span>
+            <span class="mega-text"><span class="mega-title">Growth</span><span class="mega-desc">For businesses launching products consistently.</span></span>
+          </a>
+          <a href="packages.html#pricing" class="plan-card" role="menuitem">
+            <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg></span>
+            <span class="mega-text"><span class="mega-title">Diamond</span><span class="mega-desc">Your dedicated product development partner.</span></span>
+          </a>
+          <div class="mega-divider"></div>
+          <a href="packages.html#compare" class="compare-row" role="menuitem">Compare Plans <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- LEARN — mega panel -->
+    <div class="nav-item" data-nav-item="learn">
+      <button class="nav-link" aria-haspopup="true" aria-expanded="false">Learn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="menu-wrap">
+        <div class="mega-panel grid2" role="menu">
+          <div class="mega-grid">
+            <a href="index.html#blog" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></span>
+              <span class="mega-text"><span class="mega-title">Blog</span><span class="mega-desc">Latest articles, insights, and product development tips.</span></span>
+            </a>
+            <a href="index.html#case-studies" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+              <span class="mega-text"><span class="mega-title">Case Studies</span><span class="mega-desc">Real client success stories and product journeys.</span></span>
+            </a>
+            <a href="index.html#reviews" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span>
+              <span class="mega-text"><span class="mega-title">Reviews</span><span class="mega-desc">See what clients say about working with Pursiv.</span></span>
+            </a>
+            <a href="packages.html#faq" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span>
+              <span class="mega-text"><span class="mega-title">FAQs</span><span class="mega-desc">Frequently asked questions.</span></span>
+            </a>
+            <a href="index.html#guides" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span>
+              <span class="mega-text"><span class="mega-title">Guides</span><span class="mega-desc">Educational resources about product development and sourcing.</span></span>
+            </a>
+            <a href="index.html#resources" class="mega-card" role="menuitem">
+              <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span>
+              <span class="mega-text"><span class="mega-title">Resources</span><span class="mega-desc">Downloadable templates, checklists, and useful documents.</span></span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+ 
+    <!-- COMPANY — link panel -->
+    <div class="nav-item" data-nav-item="company">
+      <button class="nav-link" aria-haspopup="true" aria-expanded="false">Company <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev"><polyline points="6 9 12 15 18 9"/></svg></button>
+      <div class="menu-wrap">
+        <div class="mega-panel company-panel" role="menu">
+          <a href="index.html#story" class="mega-card" role="menuitem">
+            <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span>
+            <span class="mega-text"><span class="mega-title">About Pursiv</span><span class="mega-desc">Learn our story and mission.</span></span>
+          </a>
+          <a href="index.html#contact" class="mega-card" role="menuitem">
+            <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span>
+            <span class="mega-text"><span class="mega-title">Contact</span><span class="mega-desc">Get in touch with our team.</span></span>
+          </a>
+          <a href="#" class="mega-card" role="menuitem">
+            <span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span>
+            <span class="mega-text"><span class="mega-title">Careers <span class="mega-soon">Soon</span></span><span class="mega-desc">Join the team building Pursiv.</span></span>
+          </a>
+          <div class="mega-divider"></div>
+          <div class="mega-label">Legal</div>
+          <a href="#" class="mega-link-row" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Z"/></svg> Privacy Policy</a>
+          <a href="#" class="mega-link-row" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><line x1="10" y1="9" x2="8" y2="9"/></svg> Terms &amp; Conditions</a>
+          <a href="#" class="mega-link-row" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg> Refund Policy</a>
+          <a href="#" class="mega-link-row" role="menuitem"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2a10 10 0 1 0 10 10 4 4 0 0 1-5-5 4 4 0 0 1-5-5"/><path d="M8.5 8.5v.01"/><path d="M16 15.5v.01"/><path d="M12 12v.01"/><path d="M11 17v.01"/><path d="M7 14v.01"/></svg> Cookie Policy</a>
+        </div>
+      </div>
+    </div>
+ 
+  </div>
+ 
+  <div class="nav-cta">
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79Z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
+    <a href="login.html" class="btn btn-primary btn-sm">Login</a>
+    <button class="menu-toggle" id="menuToggle" aria-label="Open menu"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg></button>
+  </div>
+</nav>
+ 
+<div class="mobile-menu" id="mobileMenu">
+ 
+  <div class="mm-acc">
+    <button class="mm-acc-head" aria-expanded="false">Services <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="mm-acc-body">
+      <a href="index.html#services-design" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19l7-7 3 3-7 7-3-3z"/><path d="M18 13l-1.5-7.5L2 2l3.5 14.5L13 18l5-5z"/><path d="M2 2l7.586 7.586"/><circle cx="11" cy="11" r="2"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Product Design</span><span class="mm-item-desc">Concept to production-ready visuals.</span></span></a>
+      <a href="index.html#services-3d" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4a2 2 0 0 0 1-1.73Z"/><path d="M3.3 7 12 12l8.7-5"/><path d="M12 22V12"/></svg></span><span class="mm-item-text"><span class="mm-item-title">3D Product Rendering</span><span class="mm-item-desc">Realistic renders for manufacturing.</span></span></a>
+      <a href="index.html#services-development" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 1 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 1 1-2.83-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 1 1 2.83-2.83l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 1 1 2.83 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Product Development</span><span class="mm-item-desc">Ideas into manufacturable products.</span></span></a>
+      <a href="index.html#services-research" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Supplier Research</span><span class="mm-item-desc">Reliable suppliers, matched to spec.</span></span></a>
+      <a href="index.html#services-market" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M18 17V9"/><path d="M13 17V5"/><path d="M8 17v-3"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Market Research</span><span class="mm-item-desc">Competitors, pricing, opportunity.</span></span></a>
+    </div>
+  </div>
+ 
+  <div class="mm-acc">
+    <button class="mm-acc-head" aria-expanded="false">Pricing <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="mm-acc-body">
+      <a href="packages.html#pricing" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4.5 16.5c-1.5 1.26-2 5-2 5s3.74-.5 5-2c.71-.84.7-2.13-.09-2.91a2.18 2.18 0 0 0-2.91-.09z"/><path d="M12 15l-3-3a22 22 0 0 1 2-3.95A12.88 12.88 0 0 1 22 2c0 2.72-.78 7.5-6 11a22.35 22.35 0 0 1-4 2z"/><path d="M9 12H4s.55-3.03 2-4c1.62-1.08 5 0 5 0"/><path d="M12 15v5s3.03-.55 4-2c1.08-1.62 0-5 0-5"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Starter</span><span class="mm-item-desc">Validate new product ideas.</span></span></a>
+      <a href="packages.html#pricing" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/><polyline points="17 6 23 6 23 12"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Growth <span class="mm-plan-badge">Popular</span></span><span class="mm-item-desc">Launch products consistently.</span></span></a>
+      <a href="packages.html#pricing" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h12l4 6-10 12L2 9Z"/><path d="M11 3 8 9l4 12 4-12-3-6"/><path d="M2 9h20"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Diamond</span><span class="mm-item-desc">Your dedicated product partner.</span></span></a>
+      <a href="packages.html#compare" class="mm-simple">Compare Plans →</a>
+    </div>
+  </div>
+ 
+  <div class="mm-acc">
+    <button class="mm-acc-head" aria-expanded="false">Learn <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="mm-acc-body">
+      <a href="index.html#blog" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 22h16a2 2 0 0 0 2-2V4a2 2 0 0 0-2-2H8a2 2 0 0 0-2 2v16a2 2 0 0 1-2 2Zm0 0a2 2 0 0 1-2-2v-9c0-1.1.9-2 2-2h2"/><path d="M18 14h-8"/><path d="M15 18h-5"/><path d="M10 6h8v4h-8V6Z"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Blog</span><span class="mm-item-desc">Articles &amp; product tips.</span></span></a>
+      <a href="index.html#case-studies" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Case Studies</span><span class="mm-item-desc">Real client success stories.</span></span></a>
+      <a href="index.html#reviews" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Reviews</span><span class="mm-item-desc">What clients say about us.</span></span></a>
+      <a href="packages.html#faq" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg></span><span class="mm-item-text"><span class="mm-item-title">FAQs</span><span class="mm-item-desc">Frequently asked questions.</span></span></a>
+      <a href="index.html#guides" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Guides</span><span class="mm-item-desc">Product development education.</span></span></a>
+      <a href="index.html#resources" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Resources</span><span class="mm-item-desc">Templates &amp; checklists.</span></span></a>
+    </div>
+  </div>
+ 
+  <div class="mm-acc">
+    <button class="mm-acc-head" aria-expanded="false">Company <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chev"><polyline points="6 9 12 15 18 9"/></svg></button>
+    <div class="mm-acc-body">
+      <a href="index.html#story" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4"/><path d="M12 8h.01"/></svg></span><span class="mm-item-text"><span class="mm-item-title">About Pursiv</span><span class="mm-item-desc">Our story and mission.</span></span></a>
+      <a href="index.html#contact" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Contact</span><span class="mm-item-desc">Get in touch with our team.</span></span></a>
+      <a href="#" class="mm-item"><span class="mega-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg></span><span class="mm-item-text"><span class="mm-item-title">Careers <span class="mm-plan-badge">Soon</span></span><span class="mm-item-desc">Join the team.</span></span></a>
+      <a href="#" class="mm-simple">Privacy Policy</a>
+      <a href="#" class="mm-simple">Terms &amp; Conditions</a>
+      <a href="#" class="mm-simple">Refund Policy</a>
+      <a href="#" class="mm-simple">Cookie Policy</a>
+    </div>
+  </div>
+ 
+  <div class="mm-actions">
+    <a href="login.html" class="btn btn-ghost btn-sm">Login</a>
+    <a href="7daytrial.html" class="btn btn-primary btn-sm">Start Trial</a>
+  </div>
+</div>
+ 
+<section class="pkg-hero">
+  <div class="container">
+    <span class="eyebrow reveal"><span class="dot"></span> Pricing</span>
+    <h1 class="reveal" data-delay="1">A dedicated product team, <em>on retainer.</em></h1>
+    <p class="lead reveal" data-delay="2">Three plans built around how fast you want to move — from validating your first concept to running a full monthly pipeline of design, supplier research, and negotiation support.</p>
+    <div class="pkg-hero-actions reveal" data-delay="3">
+      <a href="#pricing" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><polyline points="19 12 12 19 5 12"/></svg> View Plans</a>
+      <a href="7daytrial.html" class="btn btn-ghost">Try It Free for 7 Days</a>
+    </div>
+  </div>
+</section>
+ 
+<section id="pricing">
+  <div class="container">
+    <div class="cards-grid">
+ 
+      <div class="pcard pcard-starter reveal">
+        <div class="pkg-badge badge-starter">Starter</div>
+        <div class="pkg-plan">Starter</div>
+        <div class="pkg-headline">Perfect for businesses validating their next product.</div>
+        <div class="pkg-price"><div class="price-amount">$179</div><div class="price-period">/month</div></div>
+        <div class="price-note">Cancel anytime · No lock-in</div>
+        <div class="pkg-divider"></div>
+        <ul class="feat-list">
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">3 Product Designs / Month</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">2 Product Concepts / Month</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">2 Revision Rounds</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Basic Product Feedback</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Supplier Research (1 Supplier)</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Price Quote Included</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Basic Supplier Communication</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Basic Supplier Negotiation Support</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Sample Review &amp; Feedback</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Basic Market Research</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">WhatsApp Support</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">5-Day Delivery</span></li>
+        </ul>
+        <a href="get-started.html?plan=starter" class="pkg-cta cta-starter">Start with Starter</a>
+      </div>
+ 
+      <div class="pcard pcard-growth reveal" data-delay="1">
+        <div class="pkg-badge badge-growth">★ Most Popular</div>
+        <div class="pkg-plan">Growth</div>
+        <div class="pkg-headline">For brands launching products consistently.</div>
+        <div class="pkg-price"><div class="price-amount">$459</div><div class="price-period">/month</div></div>
+        <div class="price-note">Cancel anytime · No lock-in</div>
+        <div class="pkg-divider"></div>
+        <ul class="feat-list">
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">10 Product Designs / Month</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">6 Product Concepts / Month</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">5 Revision Rounds</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Advanced Product Feedback</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Supplier Research (3 Suppliers)</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Price Quotes Included</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Supplier Communication Included</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Supplier Negotiation Support</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Sample Review &amp; Feedback</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Standard Market Research</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Priority WhatsApp Support</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">3-Day Delivery</span></li>
+        </ul>
+        <a href="get-started.html?plan=growth" class="pkg-cta cta-growth">Start Growing</a>
+      </div>
+ 
+      <div class="pcard pcard-diamond reveal" data-delay="2">
+        <div class="pkg-badge badge-diamond">◈ Diamond</div>
+        <div class="pkg-plan">Diamond</div>
+        <div class="pkg-headline">Your dedicated product development partner.</div>
+        <div class="pkg-price"><div class="price-amount">$1,299</div><div class="price-period">/month</div></div>
+        <div class="price-note">Exclusive · Limited availability</div>
+        <div class="pkg-divider"></div>
+        <ul class="feat-list">
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">25 Product Designs / Month</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">15 Product Concepts / Month</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Unlimited Revisions</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Strategic Product Feedback</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Supplier Research (6+ Suppliers)</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Price Quotes Included</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Priority Supplier Communication</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Advanced Negotiation Support</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Priority Sample Review &amp; Feedback</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Deep Market Research</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Product Roadmap</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Monthly Strategy Calls</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Dedicated WhatsApp</span></li>
+          <li class="feat"><div class="feat-check"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg></div><span class="feat-text">Fastest Delivery</span></li>
+        </ul>
+        <a href="get-started.html?plan=diamond" class="pkg-cta cta-diamond">Become a Partner</a>
+      </div>
+ 
+    </div>
+  </div>
+</section>
+ 
+<section class="partner-note">
+  <div class="container">
+    <div class="note-card glass reveal">
+      <div class="note-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m11 17 2 2a1 1 0 1 0 3-3"/><path d="m14 14 2.5 2.5a1 1 0 1 0 3-3l-3.88-3.88a3 3 0 0 0-4.24 0l-.88.88a1 1 0 1 1-3-3l2.81-2.81a5.79 5.79 0 0 1 7.06-.87l.94.56a2 2 0 0 0 1.42.25L21 4"/><path d="m21 3 1 11h-2"/><path d="M3 3 2 14l6.5 6.5a1 1 0 1 0 3-3"/><path d="M3 4h8"/></svg></div>
+      <p><strong>Pursiv acts as your product development partner.</strong> We assist with product design, supplier research, communication, negotiations, and strategic guidance. All manufacturing agreements, supplier payments, production decisions, and logistics remain directly between you and your selected supplier.</p>
+    </div>
+  </div>
+</section>
+ 
+<section>
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow"><span class="dot"></span> Why Pursiv</span>
+      <h2 class="title">Every decision we make saves you time and guesswork.</h2>
+      <p class="lead">Most product brands lose months to disconnected freelancers, unclear supplier communication, and slow feedback loops. Pursiv exists to close that gap.</p>
+    </div>
+    <div class="why-grid">
+      <div class="why-card reveal"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3.85 8.62a4 4 0 0 1 4.78-4.77 4 4 0 0 1 6.74 0 4 4 0 0 1 4.78 4.78 4 4 0 0 1 0 6.74 4 4 0 0 1-4.77 4.78 4 4 0 0 1-6.75 0 4 4 0 0 1-4.78-4.77 4 4 0 0 1 0-6.76Z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Validate before you spend a cent on production.</h3><p>We turn your idea into a professional, production-ready design before any supplier conversation starts — so you know exactly what you're building.</p></div>
+      <div class="why-card reveal" data-delay="1"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>Real supplier options, not guesswork.</h3><p>We research and shortlist suppliers, request quotes, and support negotiation on your behalf. You review, you decide, you sign — directly with your supplier.</p></div>
+      <div class="why-card reveal" data-delay="1"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg></div><h3>Launch in weeks, not months.</h3><p>Our streamlined workflow compresses what typically takes months of back-and-forth into a clear, fast-moving process.</p></div>
+      <div class="why-card reveal" data-delay="2"><div class="why-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div><h3>One partner. No management overhead.</h3><p>Stop coordinating between freelancers, designers, and sourcing agents. You talk to us on WhatsApp — we handle the design and research work.</p></div>
+    </div>
+  </div>
+</section>
+ 
+<section id="process">
+  <div class="container">
+    <div class="how-band reveal">
+      <div class="section-head" style="margin-bottom:0;">
+        <span class="eyebrow"><span class="dot"></span> How It Works</span>
+        <h2 class="title">Simple process. Extraordinary results.</h2>
+        <p class="lead">Four steps from idea to a supplier-ready plan.</p>
+      </div>
+      <div class="steps-grid">
+        <div class="hstep"><div class="hstep-num">01</div><div class="hstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg></div><h3>Share Your Vision</h3><p>Tell us what you want to build. A rough idea, a reference photo, a sketch — whatever you have. We take it from there.</p></div>
+        <div class="hstep"><div class="hstep-num">02</div><div class="hstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg></div><h3>Design Without Risk</h3><p>We produce a professional product design so you can validate the concept before reaching out to a single supplier.</p></div>
+        <div class="hstep"><div class="hstep-num">03</div><div class="hstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div><h3>Research &amp; Connect</h3><p>We research vetted suppliers, request quotes, and support negotiation — connecting you directly with the right manufacturing partner.</p></div>
+        <div class="hstep"><div class="hstep-num">04</div><div class="hstep-icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></div><h3>Launch With Confidence</h3><p>With a production-ready design and supplier introductions in hand, you move forward knowing exactly what to expect — and exactly who you're working with.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="compare">
+  <div class="container ct-shell">
+    <div class="section-head center reveal">
+      <span class="eyebrow"><span class="dot"></span> Compare Plans</span>
+      <h2 class="title">Everything side by side.</h2>
+    </div>
+    <div class="ct-wrap reveal">
+      <div class="table-scroll">
+      <table class="ct-table">
+        <thead>
+          <tr>
+            <th class="th-feature">Feature</th>
+            <th><span class="ct-th-name">Starter</span><span class="ct-th-price">$179/mo</span><span class="ct-th-sub">billed monthly</span></th>
+            <th class="th-growth"><span class="ct-th-name">Growth</span><span class="ct-th-price growth-price">$459/mo</span><span class="ct-th-sub growth-sub">billed monthly</span></th>
+            <th><span class="ct-th-name">Diamond</span><span class="ct-th-price">$1,299/mo</span><span class="ct-th-sub">billed monthly</span></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="ct-cat"><td colspan="4">Product Design</td></tr>
+          <tr><td class="td-feature">Product designs</td><td>3/month</td><td class="td-growth">10/month</td><td class="td-diamond-val">25/month</td></tr>
+          <tr><td class="td-feature">Product concepts</td><td>2/month</td><td class="td-growth">6/month</td><td class="td-diamond-val">15/month</td></tr>
+          <tr><td class="td-feature">Revision rounds</td><td>2</td><td class="td-growth">5</td><td class="td-diamond-val">Unlimited</td></tr>
+          <tr><td class="td-feature">Product feedback</td><td>Basic</td><td class="td-growth">Advanced</td><td class="td-diamond-val">Strategic</td></tr>
+          <tr class="ct-cat"><td colspan="4">Supplier Research &amp; Communication</td></tr>
+          <tr><td class="td-feature">Supplier research</td><td>1 supplier</td><td class="td-growth">3 suppliers</td><td class="td-diamond-val">6+ suppliers</td></tr>
+          <tr><td class="td-feature">Price quotes</td><td>Included</td><td class="td-growth">Included</td><td class="td-diamond-val">Included</td></tr>
+          <tr><td class="td-feature">Supplier communication</td><td>Basic</td><td class="td-growth">Included</td><td class="td-diamond-val">Priority</td></tr>
+          <tr><td class="td-feature">Negotiation support</td><td>Basic</td><td class="td-growth">Included</td><td class="td-diamond-val">Advanced</td></tr>
+          <tr class="ct-cat"><td colspan="4">Strategy &amp; Delivery</td></tr>
+          <tr><td class="td-feature">Sample review &amp; feedback</td><td>Included</td><td class="td-growth">Included</td><td class="td-diamond-val">Priority</td></tr>
+          <tr><td class="td-feature">Market research</td><td>Basic</td><td class="td-growth">Standard</td><td class="td-diamond-val">Deep analysis</td></tr>
+          <tr><td class="td-feature">Product roadmap</td><td><span class="ct-dash">—</span></td><td class="td-growth"><span class="ct-dash">—</span></td><td class="td-diamond-val">Included</td></tr>
+          <tr><td class="td-feature">Strategy calls</td><td><span class="ct-dash">—</span></td><td class="td-growth"><span class="ct-dash">—</span></td><td class="td-diamond-val">Monthly</td></tr>
+          <tr class="ct-cat"><td colspan="4">Support &amp; Delivery</td></tr>
+          <tr><td class="td-feature">WhatsApp support</td><td>Standard</td><td class="td-growth">Priority</td><td class="td-diamond-val">Dedicated</td></tr>
+          <tr><td class="td-feature">Delivery speed</td><td>5 days</td><td class="td-growth">3 days</td><td class="td-diamond-val">Fastest</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<section id="faq">
+  <div class="container faq-shell">
+    <div class="section-head center reveal">
+      <span class="eyebrow"><span class="dot"></span> FAQ</span>
+      <h2 class="title">Questions, answered.</h2>
+      <p class="lead">Everything you need to know before you subscribe.</p>
+    </div>
+ 
+    <div class="faq-item reveal">
+      <button class="faq-q"><span>Who is Pursiv for?</span><span class="icon-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+      <div class="faq-a"><div class="faq-a-inner">Pursiv is built for eCommerce and physical-product brands that need consistent, professional product design and supplier research without hiring an in-house team. Whether you're validating your first idea or running a monthly pipeline of new products, there's a plan sized for where you are.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q"><span>Can I cancel anytime?</span><span class="icon-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+      <div class="faq-a"><div class="faq-a-inner">Yes. Every plan is billed monthly with no lock-in contract. Cancel anytime from your account and you won't be charged for the next cycle.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q"><span>Do you manufacture products?</span><span class="icon-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+      <div class="faq-a"><div class="faq-a-inner">No. Pursiv designs products and supports your supplier relationships — we never own factories, purchase inventory, or handle production ourselves. Manufacturing always happens directly between you and your chosen supplier.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q"><span>Do you pay suppliers?</span><span class="icon-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+      <div class="faq-a"><div class="faq-a-inner">No. All supplier payments happen directly between you and the supplier. We handle research, communication, and negotiation support — never the transaction itself.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q"><span>How does supplier research work?</span><span class="icon-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+      <div class="faq-a"><div class="faq-a-inner">Based on your product and target volume, we shortlist suppliers that match your specs, request price quotes on your behalf, and support the negotiation. You get a clear, comparable set of options — and you make the final call.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q"><span>What happens after I subscribe?</span><span class="icon-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+      <div class="faq-a"><div class="faq-a-inner">You'll get a short onboarding call or WhatsApp intake to scope your first product request. From there, our team starts on your design and, where relevant, supplier research — with regular check-ins along the way.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q"><span>Can I upgrade my plan?</span><span class="icon-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+      <div class="faq-a"><div class="faq-a-inner">Yes, anytime. If you're consistently using your full monthly allowance, upgrading takes effect on your next billing cycle and unlocks a larger design and research capacity right away.</div></div>
+    </div>
+    <div class="faq-item reveal">
+      <button class="faq-q"><span>Do unused design requests roll over?</span><span class="icon-plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg></span></button>
+      <div class="faq-a"><div class="faq-a-inner">Unused design and concept allowances reset each month and don't carry over. This keeps our team's capacity predictable, which is what lets us guarantee fast turnaround for every active client.</div></div>
+    </div>
+  </div>
+</section>
+ 
+<section id="demo">
+  <div class="container">
+    <div class="trust-band reveal">
+      <span class="eyebrow"><span class="dot"></span> Start Today</span>
+      <h2>Not ready yet? Experience Pursiv before committing.</h2>
+      <p class="lead">The 7-Day Trial was built for exactly this moment. One week. One product. Zero risk.</p>
+      <div class="trust-actions">
+        <a href="7daytrial.html" class="btn btn-primary"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg> Start Your 7-Day Free Trial</a>
+      </div>
+      <div class="trust-metrics">
+        <div><div class="metric-num">1h</div><div class="metric-label">Average first response</div></div>
+        <div><div class="metric-num">7 days</div><div class="metric-label">Trial delivery window</div></div>
+        <div><div class="metric-num">100%</div><div class="metric-label">Vetted supplier network</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+ 
+<footer class="footer">
+  <div class="container">
+    <a href="index.html#top" class="brand">
+      <img src="assets/pursiv-mark.png" alt="Pursiv" class="brand-mark-img">
+      PURSIV
+    </a>
+    <div class="footer-links">
+      <a href="#">Privacy</a>
+      <a href="#">Terms</a>
+      <a href="#">Contact</a>
+    </div>
+    <div class="footer-meta">pursiv.com · Product Development Partner · © 2026 Pursiv. All rights reserved.</div>
+  </div>
+</footer>
+ 
+<script>
+  /* All icons are inline SVG — no external icon library or init step needed. */
+ 
+  /* ---------- Nav scroll state ---------- */
+  const nav = document.getElementById('nav');
+  const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+  window.addEventListener('scroll', onScroll, { passive: true });
+  onScroll();
+ 
+  /* ============================================================
+     MEGA MENU — click-to-toggle (keyboard/touch) + hover (desktop CSS),
+     Escape to close, click-outside to close, only one open at a time.
+     ============================================================ */
+  (function megaMenu(){
+    const items = Array.from(document.querySelectorAll('.nav-item[data-nav-item]'));
+ 
+    function closeAll(except){
+      items.forEach(item => {
+        if (item === except) return;
+        item.classList.remove('open');
+        item.querySelector('.nav-link')?.setAttribute('aria-expanded', 'false');
+      });
+    }
+ 
+    items.forEach(item => {
+      const btn = item.querySelector('.nav-link');
+      btn?.addEventListener('click', (e) => {
+        e.stopPropagation();
+        const willOpen = !item.classList.contains('open');
+        closeAll(item);
+        item.classList.toggle('open', willOpen);
+        btn.setAttribute('aria-expanded', String(willOpen));
+      });
+    });
+ 
+    document.addEventListener('click', (e) => {
+      if (!e.target.closest('.nav-item[data-nav-item]')) closeAll(null);
+    });
+ 
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') { closeAll(null); document.activeElement?.blur(); }
+    });
+  })();
+ 
+  /* ---------- Mobile menu open/close ---------- */
+  const toggle = document.getElementById('menuToggle');
+  const menu = document.getElementById('mobileMenu');
+  toggle?.addEventListener('click', () => menu.classList.toggle('open'));
+  menu?.querySelectorAll('.mm-item, .mm-simple').forEach(a => a.addEventListener('click', () => menu.classList.remove('open')));
+ 
+  /* ---------- Mobile accordion groups ---------- */
+  document.querySelectorAll('.mm-acc').forEach(acc => {
+    const head = acc.querySelector('.mm-acc-head');
+    const body = acc.querySelector('.mm-acc-body');
+    head.addEventListener('click', () => {
+      const isOpen = acc.classList.contains('open');
+      document.querySelectorAll('.mm-acc.open').forEach(other => {
+        if (other !== acc) {
+          other.classList.remove('open');
+          other.querySelector('.mm-acc-head').setAttribute('aria-expanded', 'false');
+          other.querySelector('.mm-acc-body').style.maxHeight = null;
+        }
+      });
+      acc.classList.toggle('open', !isOpen);
+      head.setAttribute('aria-expanded', String(!isOpen));
+      body.style.maxHeight = !isOpen ? body.scrollHeight + 'px' : null;
+    });
+  });
+ 
+  /* ---------- Scroll reveal ---------- */
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+  document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+ 
+  /* ---------- FAQ accordion ---------- */
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(other => {
+        if (other !== item) {
+          other.classList.remove('open');
+          other.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      item.classList.toggle('open', !isOpen);
+      a.style.maxHeight = !isOpen ? a.scrollHeight + 'px' : null;
+    });
+  });
+ 
+  /* ============================================================
+     THEME SYSTEM — persisted in localStorage, matches homepage.
+     Note: the actual theme is already applied pre-paint by the
+     anti-flash script in <head>; this block wires up the toggle.
+     The sun/moon icon swap is pure CSS (see [data-theme] rules).
+     ============================================================ */
+  (function themeSystem(){
+    const root = document.documentElement;
+    const STORAGE_KEY = 'pursiv-theme';
+    const toggleBtn = document.getElementById('themeToggle');
+ 
+    function getPreferredTheme(){
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored === 'light' || stored === 'dark') return stored;
+      return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    }
+ 
+    function applyTheme(theme){
+      root.setAttribute('data-theme', theme);
+      localStorage.setItem(STORAGE_KEY, theme);
+      window.dispatchEvent(new CustomEvent('pursiv-theme-change', { detail: { theme } }));
+    }
+ 
+    // theme is already applied pre-paint; this just keeps state in sync
+    applyTheme(getPreferredTheme());
+ 
+    toggleBtn?.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      applyTheme(next);
+    });
+ 
+    // Stay in sync if the theme is changed on another tab (e.g. the homepage)
+    window.addEventListener('storage', (e) => {
+      if (e.key === STORAGE_KEY && (e.newValue === 'light' || e.newValue === 'dark')) {
+        applyTheme(e.newValue);
+      }
+    });
+  })();
+ 
+  /* ============================================================
+     CUSTOM CURSOR — Neon Glow (theme-aware dot: white-on-light / black-on-dark)
+     Motion model, ribbon rendering and glow are unchanged from the source cursor.
+     ============================================================ */
+  (function neonGlowCursor(){
+    const isFinePointer = window.matchMedia('(hover: hover) and (pointer: fine)').matches;
+    if (!isFinePointer) return;
+    document.documentElement.classList.add('has-custom-cursor');
+ 
+    const CURSOR_SIZE = 18, TRAIL_LENGTH = 150, TRAIL_WIDTH = 5, GLOW_INTENSITY = 0.7;
+    const BLUE_COLOR = "#33C4FF", PURPLE_COLOR = "#8B6CFF", PINK_COLOR = "#FF3D9A", FADE_SPEED = 1.0;
+    const SMOOTHING = 0.18, TRAIL_MIN_DISTANCE = 4, TRAIL_MAX_AGE_MS = 420, TRAIL_MAX_POINTS = 26;
+    const MAX_POINTS = 40, SEGMENTS_PER_LINK = 6;
+ 
+    const canvas = document.getElementById('cursor-fx');
+    const ctx = canvas.getContext('2d', { alpha: true });
+    let dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 3));
+    let width = 0, height = 0;
+ 
+    function resize(){
+      dpr = Math.max(1, Math.min(window.devicePixelRatio || 1, 3));
+      width = window.innerWidth; height = window.innerHeight;
+      canvas.width = Math.round(width * dpr); canvas.height = Math.round(height * dpr);
+      canvas.style.width = width + 'px'; canvas.style.height = height + 'px';
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    window.addEventListener('resize', resize, { passive: true });
+    resize();
+ 
+    const mouse = { x: width / 2, y: height / 2 };
+    const eased = { x: mouse.x, y: mouse.y };
+    let hasMoved = false, pointerVisible = true;
+ 
+    window.addEventListener('mousemove', (e) => {
+      mouse.x = e.clientX; mouse.y = e.clientY;
+      if (!hasMoved){ eased.x = mouse.x; eased.y = mouse.y; hasMoved = true; }
+    }, { passive: true });
+    window.addEventListener('mouseleave', () => { pointerVisible = false; });
+    window.addEventListener('mouseenter', () => { pointerVisible = true; });
+ 
+    const pool = new Array(MAX_POINTS);
+    for (let i = 0; i < MAX_POINTS; i++){ pool[i] = { x: 0, y: 0, t: 0, active: false }; }
+    let writeIndex = 0;
+    function addPoint(x, y, t){
+      const p = pool[writeIndex]; p.x = x; p.y = y; p.t = t; p.active = true;
+      writeIndex = (writeIndex + 1) % MAX_POINTS;
+    }
+ 
+    const renderBuf = new Array(MAX_POINTS + 1);
+    let renderCount = 0;
+    const tmpPoint = { x: 0, y: 0 };
+ 
+    function hexToRgb(hex){ const h = hex.replace('#',''); return { r: parseInt(h.substring(0,2),16), g: parseInt(h.substring(2,4),16), b: parseInt(h.substring(4,6),16) }; }
+    const C_BLUE = hexToRgb(BLUE_COLOR), C_PURPLE = hexToRgb(PURPLE_COLOR), C_PINK = hexToRgb(PINK_COLOR);
+    function rgba(c, a){ return `rgba(${c.r},${c.g},${c.b},${a})`; }
+ 
+    function catmullRom(p0, p1, p2, p3, t, out){
+      const t2 = t*t, t3 = t2*t;
+      out.x = 0.5 * ((2*p1.x) + (-p0.x+p2.x)*t + (2*p0.x-5*p1.x+4*p2.x-p3.x)*t2 + (-p0.x+3*p1.x-3*p2.x+p3.x)*t3);
+      out.y = 0.5 * ((2*p1.y) + (-p0.y+p2.y)*t + (2*p0.y-5*p1.y+4*p2.y-p3.y)*t2 + (-p0.y+3*p1.y-3*p2.y+p3.y)*t3);
+      return out;
+    }
+ 
+    function step(now){
+      requestAnimationFrame(step);
+      if (!hasMoved){ render(); return; }
+      eased.x += (mouse.x - eased.x) * SMOOTHING;
+      eased.y += (mouse.y - eased.y) * SMOOTHING;
+      const lastIdx = (writeIndex - 1 + MAX_POINTS) % MAX_POINTS;
+      const last = pool[lastIdx];
+      if (!last.active || Math.hypot(eased.x-last.x, eased.y-last.y) >= TRAIL_MIN_DISTANCE){
+        addPoint(eased.x, eased.y, now);
+      }
+      render();
+    }
+ 
+    function collectRenderPoints(){
+      renderBuf[0] = eased; renderCount = 1;
+      let acc = 0, prevX = eased.x, prevY = eased.y;
+      const now = performance.now();
+      for (let i = 1; i <= MAX_POINTS; i++){
+        const idx = (writeIndex - i + MAX_POINTS) % MAX_POINTS;
+        const p = pool[idx];
+        if (!p.active) break;
+        if ((now - p.t) > TRAIL_MAX_AGE_MS) break;
+        acc += Math.hypot(p.x-prevX, p.y-prevY); prevX = p.x; prevY = p.y;
+        renderBuf[renderCount++] = p;
+        if (renderCount - 1 >= TRAIL_MAX_POINTS) break;
+        if (acc >= TRAIL_LENGTH) break;
+      }
+    }
+ 
+    const LAYERS = [
+      { widthMul: 3.2, blur: 22, alpha: 0.14 },
+      { widthMul: 1.8, blur: 10, alpha: 0.30 },
+      { widthMul: 1.0, blur: 3,  alpha: 0.80 }
+    ];
+ 
+    function buildRibbonPath(){
+      ctx.beginPath();
+      ctx.moveTo(renderBuf[0].x, renderBuf[0].y);
+      for (let i = 0; i < renderCount - 1; i++){
+        const p0 = i > 0 ? renderBuf[i-1] : renderBuf[i];
+        const p1 = renderBuf[i], p2 = renderBuf[i+1];
+        const p3 = i + 2 < renderCount ? renderBuf[i+2] : p2;
+        for (let s = 1; s <= SEGMENTS_PER_LINK; s++){
+          catmullRom(p0, p1, p2, p3, s / SEGMENTS_PER_LINK, tmpPoint);
+          ctx.lineTo(tmpPoint.x, tmpPoint.y);
+        }
+      }
+    }
+ 
+    // Theme-aware cursor dot: light theme -> white dot / dark ring, dark theme -> black dot / light ring
+    let dotFill = 'rgba(255,255,255,0.97)', dotStroke = 'rgba(20,20,24,0.35)';
+    function syncDotColors(theme){
+      if (theme === 'dark'){ dotFill = 'rgba(0,0,0,0.92)'; dotStroke = 'rgba(255,255,255,0.9)'; }
+      else { dotFill = 'rgba(255,255,255,0.97)'; dotStroke = 'rgba(20,20,24,0.35)'; }
+    }
+    syncDotColors(document.documentElement.getAttribute('data-theme'));
+    window.addEventListener('pursiv-theme-change', (e) => syncDotColors(e.detail.theme));
+ 
+    function render(){
+      ctx.clearRect(0, 0, width, height);
+      if (!hasMoved) return;
+      collectRenderPoints();
+ 
+      if (renderCount >= 2 && pointerVisible){
+        const headPt = renderBuf[0], tailPt = renderBuf[renderCount-1];
+        const grad = ctx.createLinearGradient(tailPt.x, tailPt.y, headPt.x, headPt.y);
+        grad.addColorStop(0.0, rgba(C_PINK, 0));
+        grad.addColorStop(0.18, rgba(C_PINK, 0.55 * FADE_SPEED));
+        grad.addColorStop(0.55, rgba(C_PURPLE, 0.8));
+        grad.addColorStop(1.0, rgba(C_BLUE, 1));
+        buildRibbonPath();
+        ctx.save();
+        ctx.globalCompositeOperation = 'lighter';
+        ctx.lineCap = 'round'; ctx.lineJoin = 'round'; ctx.strokeStyle = grad;
+        for (const layer of LAYERS){
+          ctx.globalAlpha = layer.alpha;
+          ctx.lineWidth = TRAIL_WIDTH * layer.widthMul;
+          ctx.shadowColor = rgba(C_PURPLE, layer.alpha);
+          ctx.shadowBlur = layer.blur * GLOW_INTENSITY;
+          ctx.stroke();
+        }
+        ctx.restore();
+      }
+ 
+      if (pointerVisible){
+        ctx.save();
+        ctx.globalCompositeOperation = 'source-over';
+        ctx.globalAlpha = 1;
+        const haloColor = C_BLUE;
+        ctx.beginPath();
+        ctx.arc(eased.x, eased.y, CURSOR_SIZE * 0.9, 0, Math.PI * 2);
+        ctx.fillStyle = rgba(haloColor, 0.10);
+        ctx.shadowColor = rgba(haloColor, 0.45);
+        ctx.shadowBlur = 16 * GLOW_INTENSITY;
+        ctx.fill();
+ 
+        ctx.beginPath();
+        ctx.arc(eased.x, eased.y, CURSOR_SIZE / 2, 0, Math.PI * 2);
+        ctx.shadowBlur = 0;
+        ctx.fillStyle = dotFill;
+        ctx.fill();
+        ctx.lineWidth = 1.25;
+        ctx.strokeStyle = dotStroke;
+        ctx.stroke();
+        ctx.restore();
+      }
+    }
+ 
+    requestAnimationFrame(step);
+  })();
+</script>
+</body>
+</html>
